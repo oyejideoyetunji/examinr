@@ -1,9 +1,9 @@
 import { defineConfig } from "drizzle-kit";
-import { config } from "./src/config";
+import { config } from "./src/shared";
 
 export default defineConfig({
-  schema: "src/db/schema.ts",
-  out: "src/db",
+  schema: "src/shared/db/schema.ts",
+  out: "src/shared/db",
   dialect: "postgresql",
   dbCredentials: {
     url: config.db.url,

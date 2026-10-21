@@ -1,6 +1,6 @@
 process.loadEnvFile();
 
-import type { MigrationConfig } from "drizzle-orm/xata-http/migrator";
+import type { MigrationConfig } from "drizzle-orm/migrator";
 
 
 function getEnvVar(key: string) {
