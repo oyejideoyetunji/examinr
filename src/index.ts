@@ -1,24 +1,21 @@
-process.loadEnvFile();
+import express from "express";
+import { config, errorHandler } from "./shared";
+import { createUserModule } from "./modules/user/user.module";
+import { OrmUserRepository } from "./modules/user/infrastructure";
 
-import http from "node:http";
+const app = express();
+const PORT = config.api.port;
 
-console.log(process.env.DB_URL);
+app.use(express.json());
 
-const server = http.createServer(async(req, resp) => {
-  const response = await fetch("https://api.github.com/users/oyejideoyetunji/repos?per_page=3");
-  const data = await response.json();
-  const body = JSON.stringify(data)
+app.use("/api/v1/users", createUserModule(new OrmUserRepository()))
 
-  resp.writeHead(
-    200,
-    {
-      "content-type": "application/json",
-      "content-length": Buffer.byteLength(body),
-    }
-  )
-  resp.end(body);
-});
+app.use("", (_, res) => {
+  res.status(200).send({ "message": "OK" });
+})
 
-server.listen(8080, "localhost", () => {
-  console.log(`server listening on port 8080`)
+app.use(errorHandler);
+
+app.listen(PORT, () => {
+  console.log(`Server is now running at http://localhost:${PORT}`);
 });
