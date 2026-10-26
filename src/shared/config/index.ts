@@ -2,7 +2,6 @@ process.loadEnvFile();
 
 import type { MigrationConfig } from "drizzle-orm/migrator";
 
-
 function getEnvVar(key: string) {
     const value = process.env[key];
 
@@ -33,7 +32,7 @@ type Config = {
 };
 
 const migrationConfig: MigrationConfig = {
-    migrationsFolder: "./src/db",
+    migrationsFolder: "src/shared/db",
 };
 
 const db: DBConfig = {
@@ -50,4 +49,3 @@ export const config: Config = {
     db,
     api
 };
-
