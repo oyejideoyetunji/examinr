@@ -8,6 +8,3 @@ export const users = pgTable("users", {
     username: varchar("username", { length: 256 }).unique().notNull(),
     hashedPassword: varchar("hashed_password").default("unset").notNull(),
 });
-export type User = typeof users.$inferSelect;
-export type NewUserPayload = typeof users.$inferInsert;
-export type UserResponse = Omit<User, "hashedPassword">;

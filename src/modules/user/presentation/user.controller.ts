@@ -1,9 +1,13 @@
 import type { Request, Response } from "express"
 import type { CreateUserUseCase, GetUsersUseCase } from "../application";
+import type { FindUserByEmailUseCase } from "../application/find-user-by-email.usecase";
+import type { GetUserAuthUseCase } from "../application/get-user-auth.usecase";
 
 interface UserUseCases {
-    createUser: CreateUserUseCase;
     getUsers: GetUsersUseCase;
+    createUser: CreateUserUseCase;
+    getUserAuth: GetUserAuthUseCase;
+    findUserByEmail: FindUserByEmailUseCase;
 }
 
 export class UserController {
@@ -11,10 +15,6 @@ export class UserController {
 
     create = async (req: Request, res: Response) => {
         const user = await this.useCaeses.createUser.execute(req.body);
-
-        if (!user) {
-            throw new Error(`Failed to create user for the given payload: ${JSON.stringify(req.body)}`);
-        }
 
         res.status(201).send(user);
     }

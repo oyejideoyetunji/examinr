@@ -1,4 +1,5 @@
-import type { NewUserPayload } from "../../../shared";
+import { BadRequest } from "../../../shared/error";
+import type { NewUserPayload } from "../../../shared/types";
 import type { UserRepository } from "../domain";
 
 export class CreateUserUseCase {
@@ -6,9 +7,15 @@ export class CreateUserUseCase {
 
     execute = async (data: NewUserPayload) => {
         if (await this.users.findByEmail(data.email)) {
-            throw new Error("Email already in use")
+            throw new BadRequest("Email already in use")
         }
 
-        return await this.users.save(data);
+        const user = await this.users.save(data);
+
+        if (!user) {
+            throw new Error(`Failed to create user for the given email: ${data.email}`);
+        }
+
+        return user;
     }
 }

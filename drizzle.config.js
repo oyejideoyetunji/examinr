@@ -1,5 +1,5 @@
 import { defineConfig } from "drizzle-kit";
-import { config } from "./src/shared";
+import { config } from "./src/shared/db";
 
 export default defineConfig({
   schema: "src/shared/db/schema.ts",

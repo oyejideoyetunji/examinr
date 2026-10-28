@@ -15,6 +15,7 @@ function getEnvVar(key: string) {
 const port = getEnvVar("PORT");
 const url = getEnvVar("DB_URL");
 const platform = getEnvVar("PLATFORM");
+const jwtSecrete = getEnvVar("JWT_SECRETE");
 
 type DBConfig = {
     url: string;
@@ -24,6 +25,7 @@ type DBConfig = {
 type APIConfig = {
     port: number;
     platform: string;
+    jwtSecrete: string;
 };
 
 type Config = {
@@ -42,7 +44,8 @@ const db: DBConfig = {
 
 const api: APIConfig = {
     port: Number(port),
-    platform
+    platform,
+    jwtSecrete,
 };
 
 export const config: Config = {

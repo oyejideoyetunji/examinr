@@ -24,6 +24,7 @@
   "type": "module",
   "devDependencies": {
     "@types/express": "^5.0.6",
+    "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^26.6.5",
     "drizzle-kit": "^0.31.11",
     "tsup": "^9.0.0",

@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { z } from "zod";
 import type { UserController } from "./user.controller";
-import { validateRequestData } from "../../../shared";
+import { validateRequestData } from "../../../shared/middlewares";
 
 export function userRoutes(controller: UserController) {
     const router: Router = Router();
