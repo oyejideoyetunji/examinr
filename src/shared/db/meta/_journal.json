@@ -8,6 +8,20 @@
       "when": 1793017913760,
       "tag": "0000_square_scourge",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1793258987303,
+      "tag": "0001_parched_yellow_claw",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1793259270537,
+      "tag": "0002_amusing_jazinda",
+      "breakpoints": true
     }
   ]
 }

@@ -3,7 +3,7 @@ import { db, users } from "../../../shared/db";
 import type { NewUserPayload, User} from "../../../shared/types";
 import type { UserRepository } from "../domain";
 
-const userResponse = { id: users.id, createdAt: users.createdAt, updatedAt: users.updatedAt, username: users.username, email: users.email };
+const userResponse = { id: users.id, createdAt: users.createdAt, updatedAt: users.updatedAt, username: users.username, email: users.email, role: users.role };
 
 export class OrmUserRepository implements UserRepository {
     async save(user: NewUserPayload) {
