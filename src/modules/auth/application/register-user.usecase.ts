@@ -1,6 +1,11 @@
-import type { RegisterUserPayload } from "../domain/entities";
 import type { UserGateWay } from "../domain/gate-ways";
 import type { PasswordHasher } from "../domain/ports";
+
+type RegisterUserPayload = {
+    email: string;
+    username: string;
+    password: string;
+}
 
 export class RegisterUserUseCase {
     constructor (

@@ -1,7 +1,13 @@
 import { Unauthorized } from "../../../shared/error";
-import type { LoginPayload } from "../domain/entities";
 import type { UserGateWay } from "../domain/gate-ways";
 import type { PasswordHasher, TokenIssuer } from "../domain/ports";
+
+
+type LoginPayload = {
+    email: string;
+    password: string;
+}
+
 
 export class LoginUseCase {
     constructor (
