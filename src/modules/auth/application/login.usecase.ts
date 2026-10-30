@@ -25,7 +25,7 @@ export class LoginUseCase {
             throw new Unauthorized();
         }
 
-        const jwt = this.tokenIssuer.issueFor({ userId: userAuth.id, email: userAuth.email});
+        const jwt = this.tokenIssuer.issueFor({ userId: userAuth.id, email: userAuth.email, roles: [] });
 
         return jwt;
     }

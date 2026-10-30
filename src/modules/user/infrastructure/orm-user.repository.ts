@@ -10,7 +10,6 @@ export class OrmUserRepository implements UserRepository {
         const [ result ] = await db
             .insert(users)
             .values(user)
-            .onConflictDoNothing()
             .returning(userResponse);
 
         return result;

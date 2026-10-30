@@ -1,0 +1,1 @@
+ALTER TABLE "courses" ADD CONSTRAINT "teacher_title_pair" UNIQUE("teacher_id","title");
